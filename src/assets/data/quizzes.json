@@ -1,0 +1,297 @@
+[
+  {
+    "course": "Permiso AM (Moped)",
+    "slug": "permiso-am-moped",
+    "chapters": [
+      {
+        "chapter": "Moped Basics",
+        "slug": "moped-basics",
+        "quiz": [
+          {
+            "question": "What is the maximum speed of a moped?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["25 km/h", "35 km/h", "45 km/h", "60 km/h"],
+            "answer": "45 km/h"
+          },
+          {
+            "question": "Which type of fuel does a moped use?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Diesel", "Electric", "Gasoline", "Ethanol"],
+            "answer": "Gasoline"
+          },
+          {
+            "question": "Which type of fuel does a moped use?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Diesel", "Electric", "Gasoline", "Ethanol"],
+            "answer": "Gasoline"
+          },
+          {
+            "question": "Which type of fuel does a moped use?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Diesel", "Electric", "Gasoline", "Ethanol"],
+            "answer": "Gasoline"
+          },
+          {
+            "question": "Which type of fuel does a moped use?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Diesel", "Electric", "Gasoline", "Ethanol"],
+            "answer": "Gasoline"
+          }
+        ]
+      },
+      {
+        "chapter": "Road Signs for Mopeds",
+        "slug": "road-signs-for-mopeds",
+        "quiz": [
+          {
+            "question": "What does a red circular sign indicate?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Warning", "Prohibition", "Information", "Mandatory"],
+            "answer": "Prohibition"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "course": "Permiso B (Car License)",
+    "slug": "permiso-b-car-license",
+    "chapters": [
+      {
+        "chapter": "Traffic Laws and Regulations",
+        "slug": "traffic-laws-and-regulations",
+        "quiz": [
+          {
+            "question": "What is the minimum age to obtain a car license?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["16", "18", "20", "21"],
+            "answer": "18"
+          }
+        ]
+      },
+      {
+        "chapter": "Parking Rules and Techniques",
+        "slug": "parking-rules-and-techniques",
+        "quiz": [
+          {
+            "question": "What is the legal distance to park from a crosswalk?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["5 meters", "7 meters", "10 meters", "15 meters"],
+            "answer": "5 meters"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "course": "Permiso C (Truck License)",
+    "slug": "permiso-c-truck-license",
+    "chapters": [
+      {
+        "chapter": "Truck Loading and Safety",
+        "slug": "truck-loading-and-safety",
+        "quiz": [
+          {
+            "question": "What is the maximum legal load for a truck?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["20 tons", "25 tons", "30 tons", "40 tons"],
+            "answer": "40 tons"
+          }
+        ]
+      },
+      {
+        "chapter": "Heavy Vehicle Handling",
+        "slug": "heavy-vehicle-handling",
+        "quiz": [
+          {
+            "question": "What is the turning radius of a typical heavy truck?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["10 meters", "15 meters", "20 meters", "25 meters"],
+            "answer": "20 meters"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "course": "Permiso D (Bus License)",
+    "slug": "permiso-d-bus-license",
+    "chapters": [
+      {
+        "chapter": "Passenger Transport Safety",
+        "slug": "passenger-transport-safety",
+        "quiz": [
+          {
+            "question": "What is the legal number of passengers allowed on a bus?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["50", "60", "70", "90"],
+            "answer": "70"
+          }
+        ]
+      },
+      {
+        "chapter": "Emergency Procedures for Bus Drivers",
+        "slug": "emergency-procedures-for-bus-drivers",
+        "quiz": [
+          {
+            "question": "What should a driver do in case of a fire on a bus?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Evacuate passengers", "Drive to the nearest fire station", "Continue driving", "Call emergency services"],
+            "answer": "Evacuate passengers"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "course": "Permiso C+E (Articulated Vehicles)",
+    "slug": "permiso-c-e-articulated-vehicles",
+    "chapters": [
+      {
+        "chapter": "Articulated Vehicle Maneuvers",
+        "slug": "articulated-vehicle-maneuvers",
+        "quiz": [
+          {
+            "question": "What is the maximum length of an articulated vehicle?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["15 meters", "20 meters", "25 meters", "30 meters"],
+            "answer": "25 meters"
+          }
+        ]
+      },
+      {
+        "chapter": "Safe Towing Techniques",
+        "slug": "safe-towing-techniques",
+        "quiz": [
+          {
+            "question": "What is the safe speed for towing a trailer?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["60 km/h", "70 km/h", "80 km/h", "90 km/h"],
+            "answer": "80 km/h"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "course": "Permiso A1 (Motorcycle License)",
+    "slug": "permiso-a1-motorcycle-license",
+    "chapters": [
+      {
+        "chapter": "Motorcycle Basics",
+        "slug": "motorcycle-basics",
+        "quiz": [
+          {
+            "question": "What is the engine capacity limit for A1 motorcycles?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["100 cc", "125 cc", "200 cc", "250 cc"],
+            "answer": "125 cc"
+          }
+        ]
+      },
+      {
+        "chapter": "Motorcycle Maneuvering",
+        "slug": "motorcycle-maneuvering",
+        "quiz": [
+          {
+            "question": "What is the correct posture for riding a motorcycle?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Leaning forward", "Straight posture", "Leaning backward", "Standing upright"],
+            "answer": "Straight posture"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "course": "Permiso A2 (Advanced Motorcycle License)",
+    "slug": "permiso-a2-advanced-motorcycle-license",
+    "chapters": [
+      {
+        "chapter": "Advanced Motorcycle Techniques",
+        "slug": "advanced-motorcycle-techniques",
+        "quiz": [
+          {
+            "question": "What is the maximum speed allowed for A2 motorcycles?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["100 km/h", "120 km/h", "140 km/h", "160 km/h"],
+            "answer": "120 km/h"
+          }
+        ]
+      },
+      {
+        "chapter": "High-Speed Maneuvers",
+        "slug": "high-speed-maneuvers",
+        "quiz": [
+          {
+            "question": "Which technique is most effective for high-speed cornering?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Leaning into the turn", "Leaning away from the turn", "Standing upright", "Slowing down"],
+            "answer": "Leaning into the turn"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "course": "Permiso AM (Moped) - Night Driving",
+    "slug": "permiso-am-moped-night-driving",
+    "chapters": [
+      {
+        "chapter": "Night Driving Basics",
+        "slug": "night-driving-basics",
+        "quiz": [
+          {
+            "question": "What should you do to improve visibility when driving at night?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Use high beams", "Turn on interior lights", "Drive faster", "Use fog lights"],
+            "answer": "Use high beams"
+          }
+        ]
+      },
+      {
+        "chapter": "Night Driving Safety",
+        "slug": "night-driving-safety",
+        "quiz": [
+          {
+            "question": "What is the safest way to avoid fatigue when driving at night?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Take frequent breaks", "Drink coffee", "Turn up the radio", "Open the window"],
+            "answer": "Take frequent breaks"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "course": "Permiso B (Car License) - Highway Driving",
+    "slug": "permiso-b-car-license-highway-driving",
+    "chapters": [
+      {
+        "chapter": "Highway Safety",
+        "slug": "highway-safety",
+        "quiz": [
+          {
+            "question": "What is the speed limit on most highways?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["100 km/h", "110 km/h", "120 km/h", "130 km/h"],
+            "answer": "120 km/h"
+          }
+        ]
+      },
+      {
+        "chapter": "Overtaking on Highways",
+        "slug": "overtaking-on-highways",
+        "quiz": [
+          {
+            "question": "When is it safe to overtake another vehicle?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["When there are no oncoming vehicles", "When you are on a straight road", "In a curve", "When the vehicle in front is driving slowly"],
+            "answer": "When there are no oncoming vehicles"
+          }
+        ]
+      }
+    ]
+  }
+]
+
