@@ -68,6 +68,41 @@ const Users = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isAddUser, setIsAddUser] = useState(false);
 
+  // State to handle form input
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    city: "",
+    dob: "",
+    gender: "male",
+  });
+
+  // Handle form changes
+  const handleFormChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Handle form submission
+  const handleAddUser = () => {
+    const newUser = {
+      id: users.length + 1, // Unique ID based on length
+      name: `${formData.firstName} ${formData.lastName}`,
+      email: formData.email,
+      city: formData.city,
+      dob: formData.dob,
+      gender: formData.gender,
+      dateCreated: new Date().toISOString().split("T")[0], // current date
+    };
+
+    setUsers([...users, newUser]); // Add new user to the list
+    setIsAddUser(false); // Return to the main users table
+    setFormData({ firstName: "", lastName: "", email: "", city: "", dob: "", gender: "male" }); // Reset form
+  };
+
   // Columns configuration
   const columns = [
     { field: "name", headerName: "Name", width: 200 },
@@ -134,8 +169,8 @@ const Users = () => {
                 rows={filteredUsers}
                 columns={columns}
                 checkboxSelection
-                pageSize={20}
-                rowsPerPageOptions={[20]}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
                 pagination
               />
             </Box>
@@ -166,6 +201,9 @@ const Users = () => {
                     <input
                       type="text"
                       id="f-name"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleFormChange}
                       placeholder="Enter first name"
                     />
                   </div>
@@ -175,6 +213,9 @@ const Users = () => {
                     <input
                       type="text"
                       id="l-name"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleFormChange}
                       placeholder="Enter last name"
                     />
                   </div>
@@ -182,12 +223,26 @@ const Users = () => {
 
                 <div className="field">
                   <label htmlFor="email">Email</label>
-                  <input type="email" id="email" placeholder="Enter email" />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleFormChange}
+                    placeholder="Enter email"
+                  />
                 </div>
 
                 <div className="field">
                   <label htmlFor="city">City</label>
-                  <input type="text" id="city" placeholder="Enter city" />
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleFormChange}
+                    placeholder="Enter city"
+                  />
                 </div>
 
                 <div className="field">
@@ -195,21 +250,43 @@ const Users = () => {
                   <input
                     type="date"
                     id="dob"
+                    name="dob"
+                    value={formData.dob}
+                    onChange={handleFormChange}
                     placeholder="Enter date of birth"
                   />
                 </div>
 
                 <div className="field">
                   <label htmlFor="gender">Gender</label>
-                  <select name="gender" id="gender">
+                  <select
+                    name="gender"
+                    id="gender"
+                    value={formData.gender}
+                    onChange={handleFormChange}
+                  >
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                   </select>
                 </div>
 
                 <div className="field buttons">
-                  <button type="button" className="btn btn-success">Add</button>
-                  <button type="button" className="btn btn-danger" onClick={()=>{setIsAddUser(false)}}>Cancel</button>
+                  <button
+                    type="button"
+                    className="btn btn-success"
+                    onClick={handleAddUser}
+                  >
+                    Add
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={() => {
+                      setIsAddUser(false);
+                    }}
+                  >
+                    Cancel
+                  </button>
                 </div>
               </form>
             </div>

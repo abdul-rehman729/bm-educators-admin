@@ -895,7 +895,7 @@ h1.heading svg {
 
 /* USERS TAB CSS */
 
-.tab-content.users .tab-inner .top-header{
+.tab-content .tab-inner .top-header{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -905,24 +905,24 @@ h1.heading svg {
   border-radius: 10px;
 }
 
-.tab-content.users .tab-inner .top-header .heading {
+.tab-content .tab-inner .top-header .heading {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.tab-content.users .tab-inner .top-header .heading svg{
-  width: 35px;
+.tab-content .tab-inner .top-header .heading svg{
+  width: 30px;
   fill: #1da923;
 }
 
-.tab-content.users .tab-inner .top-header .heading h1{
+.tab-content .tab-inner .top-header .heading h1{
   margin: 0;
   color: #222;
-  font-size: 28px;
+  font-size: 24px;
 }
 
-.tab-content.users .tab-inner .top-header button.btn{
+.tab-content .tab-inner .top-header button.btn{
   border: none;
   padding: 8px 16px;
   color: #fff;
@@ -936,23 +936,23 @@ h1.heading svg {
   gap: 5px;
 }
 
-.tab-content.users .tab-inner .top-header button.btn-purple{
+.tab-content .tab-inner .top-header button.btn-purple{
   background-color: #671da9;
 }
 
-.tab-content.users .tab-inner .top-header button.btn-purple:hover{
+.tab-content .tab-inner .top-header button.btn-purple:hover{
   box-shadow: 0px 0px 10px 1px #671da9;
 }
 
-.tab-content.users .tab-inner .top-header button.btn-danger{
+.tab-content .tab-inner .top-header button.btn-danger{
   background-color: #f34642;
 }
 
-.tab-content.users .tab-inner .top-header button.btn-danger:hover{
+.tab-content .tab-inner .top-header button.btn-danger:hover{
   box-shadow: 0px 0px 10px 1px #f34642;
 }
 
-.tab-content.users .tab-inner .top-header button.btn svg{
+.tab-content .tab-inner .top-header button.btn svg{
   width: 20px;
   fill: #fff;
 }
@@ -1065,7 +1065,49 @@ h1.heading svg {
 .add-user-page .add-user-form .field.buttons{
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   margin-top: 20px;
+}
+
+/* Category Tab CSS */
+.category-cards{
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  justify-content: space-between;
+}
+
+.category-cards .card{
+  padding: 20px;
+  background-color: #eee;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.category-cards .card:hover{
+  background-color: #671da9;
+  color: #fff;
+}
+
+.category-cards .card .image img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.category-cards .card .text{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.category-cards .card .text h4{
+  margin: 0;
+}
+
+.category-cards .card .text p{
+  margin: 0;
+  font-size: 14px;
 }
 
 @media (max-width: 1280px) {
