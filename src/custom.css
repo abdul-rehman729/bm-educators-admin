@@ -123,9 +123,9 @@ body {
 }
 
 .bm-tabs-header .tab {
-  padding: 10px 20px;
+  padding: 10px 15px;
   cursor: pointer;
-  border-left: 2px solid transparent;
+  border-left: 4px solid transparent;
   font-family: "Poppins";
   display: flex;
   align-items: center;
@@ -156,11 +156,14 @@ body {
 }
 
 .tab-content {
-  padding: 20px;
   background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  border-left: 1px solid #ddd;
   position: relative;
   min-height: 100vh;
+}
+
+.tab-content .tab-inner{
+  padding: 20px;
 }
 
 .bm-tab-content {
@@ -888,6 +891,181 @@ h1.heading svg {
 
 .footer .navigation-buttons button.prevBtn:hover {
   box-shadow: 0px 0px 10px 1px #f34642;
+}
+
+/* USERS TAB CSS */
+
+.tab-content.users .tab-inner .top-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 10px;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+.tab-content.users .tab-inner .top-header .heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tab-content.users .tab-inner .top-header .heading svg{
+  width: 35px;
+  fill: #1da923;
+}
+
+.tab-content.users .tab-inner .top-header .heading h1{
+  margin: 0;
+  color: #222;
+  font-size: 28px;
+}
+
+.tab-content.users .tab-inner .top-header button.btn{
+  border: none;
+  padding: 8px 16px;
+  color: #fff;
+  border-radius: 7px;
+  font-family: "Poppins";
+  transition: 0.3s all;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.tab-content.users .tab-inner .top-header button.btn-purple{
+  background-color: #671da9;
+}
+
+.tab-content.users .tab-inner .top-header button.btn-purple:hover{
+  box-shadow: 0px 0px 10px 1px #671da9;
+}
+
+.tab-content.users .tab-inner .top-header button.btn-danger{
+  background-color: #f34642;
+}
+
+.tab-content.users .tab-inner .top-header button.btn-danger:hover{
+  box-shadow: 0px 0px 10px 1px #f34642;
+}
+
+.tab-content.users .tab-inner .top-header button.btn svg{
+  width: 20px;
+  fill: #fff;
+}
+
+.users .grid-table-header{
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.users .grid-table-header .search-bar{
+  position: relative;
+  margin-right: 10px;
+}
+
+.users .grid-table-header .search-bar .search{
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  border-radius: 7px;
+  font-family: "Poppins";
+}
+
+.users .grid-table-header .search-bar svg{
+  width: 25px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.3s;
+}
+
+.users .grid-table-header .search:focus{
+  outline-color: #671da9;
+}
+
+.users .grid-table-header .search:focus ~ svg{
+  fill: #671da9;
+}
+
+.users .btn{
+  padding: 8px 16px;
+  border-radius: 7px;
+  border: none;
+  font-family: "Poppins";
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.users .btn.btn-success{
+  background-color: #1da923;
+}
+
+.users .btn.btn-success:hover{
+  box-shadow: 0px 0px 10px 1px #1da923;
+}
+
+.users .btn.btn-danger{
+  background-color: #f34642;
+}
+
+.users .btn.btn-danger:hover{
+  box-shadow: 0px 0px 10px 1px #f34642;
+}
+
+.add-user-page .heading{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.add-user-page .heading h1{
+  margin: 0;
+}
+
+.add-user-page .heading svg{
+  width: 30px;
+}
+
+.add-user-page .add-user-form .field-row{
+  display: grid;
+  grid-template-columns: 49% 49%;
+  justify-content: space-between;
+}
+
+.add-user-page .add-user-form .field{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.add-user-page .add-user-form .field label{
+  font-size: 14px;
+}
+
+.add-user-page .add-user-form .field input, .add-user-page .add-user-form .field select{
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-family: "Poppins";
+}
+
+.add-user-page .add-user-form .field input:focus, .add-user-page .add-user-form .field select:focus{
+  outline-color: #671da9;
+}
+
+.add-user-page .add-user-form .field.buttons{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
 }
 
 @media (max-width: 1280px) {

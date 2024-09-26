@@ -1,10 +1,11 @@
 import React from "react";
 import logo from "../assets/logo.png";
-import { ReactComponent as HomeIcon } from "../assets/home.svg";
-import { ReactComponent as ScheduleIcon } from "../assets/schedule.svg";
-import { ReactComponent as OnlineIcon } from "../assets/online.svg";
+import { ReactComponent as UserIcon } from "../assets/users.svg";
+import { ReactComponent as CategoriesIcon } from "../assets/categories.svg";
+import { ReactComponent as QuestionIcon } from "../assets/questions.svg";
 import { ReactComponent as QuizIcon } from "../assets/quiz.svg";
-import { ReactComponent as ProgressIcon } from "../assets/progress.svg";
+import { ReactComponent as RequestIcon } from "../assets/requests.svg";
+import { ReactComponent as PaymentIcon } from "../assets/payments.svg";
 import { ReactComponent as LogoutIcon } from "../assets/logout.svg";
 import { useNavigate, useLocation } from "react-router-dom"; // Import useNavigate and useLocation
 import "../custom.css";
@@ -17,18 +18,17 @@ function Tabs({ setIsLogin }) {
   const tabPathMapping = {
     "/": 0,
     "/categories": 1,
-    "/quizzes": 2,
-    "/questions": 3,
-    "/requests": 4, // Add this line for courseSlug paths
+    "/questions": 2,
+    "/quizzes": 3,
+    "/requests": 4,
     "/payments": 5,
-    "/permissions": 6,
   };
 
   // Determine which tab is active based on the URL path
   const activeTab = Object.keys(tabPathMapping).some((path) =>
     location.pathname.includes("/quizzes")
   )
-    ? 2
+    ? 3
     : tabPathMapping[location.pathname] || 0;
 
   const handleTabClick = (path) => {
@@ -53,50 +53,43 @@ function Tabs({ setIsLogin }) {
           className={activeTab === 0 ? "tab active" : "tab"}
           onClick={() => handleTabClick("/")} // Route to Dashboard
         >
-          <HomeIcon />
+          <UserIcon />
           Users
         </div>
         <div
           className={activeTab === 1 ? "tab active" : "tab"}
           onClick={() => handleTabClick("/categories")} // Route to Schedule Classes
         >
-          <ScheduleIcon />
+          <CategoriesIcon />
           Categories
         </div>
         <div
           className={activeTab === 2 ? "tab active" : "tab"}
-          onClick={() => handleTabClick("/quizzes")} // Route to Online Classes
+          onClick={() => handleTabClick("/questions")}
         >
-          <OnlineIcon />
-          Quizzes
+          <QuestionIcon />
+          Questions
         </div>
         <div
           className={activeTab === 3 ? "tab active" : "tab"}
-          onClick={() => handleTabClick("/questions")}
+          onClick={() => handleTabClick("/quizzes")} // Route to Online Classes
         >
           <QuizIcon />
-          Questions
+          Quizzes
         </div>
         <div
           className={activeTab === 4 ? "tab active" : "tab"}
           onClick={() => handleTabClick("/requests")} // Route to Progress
         >
-          <ProgressIcon />
+          <RequestIcon />
           Requests
         </div>
         <div
           className={activeTab === 5 ? "tab active" : "tab"}
           onClick={() => handleTabClick("/payments")} // Route to Progress
         >
-          <ProgressIcon />
+          <PaymentIcon />
           Payments
-        </div>
-        <div
-          className={activeTab === 6 ? "tab active" : "tab"}
-          onClick={() => handleTabClick("/permissions")} // Route to Progress
-        >
-          <ProgressIcon />
-          Permissions
         </div>
         <button className="tab bm-logout" onClick={handleLogout}>
           <LogoutIcon />
