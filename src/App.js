@@ -40,8 +40,8 @@ function App() {
             <>
               <Route path="/" element={<Users />} />
               <Route path="/categories" element={<Categories />} />
-              <Route path="/quizzes" element={<Quizzes />} />
               <Route path="/questions" element={<Questions />} />
+              <Route path="/quizzes" element={<Quizzes />} />
               <Route path="/requests" element={<Requests />} />
               <Route path="/payments" element={<Payments />} />
               <Route path="/permissions" element={<Permissions />} />
