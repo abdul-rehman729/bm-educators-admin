@@ -162,7 +162,7 @@ body {
   min-height: 100vh;
 }
 
-.tab-content .tab-inner{
+.tab-content .tab-inner {
   padding: 20px;
 }
 
@@ -895,7 +895,7 @@ h1.heading svg {
 
 /* USERS TAB CSS */
 
-.tab-content .tab-inner .top-header{
+.tab-content .tab-inner .top-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -911,18 +911,18 @@ h1.heading svg {
   gap: 10px;
 }
 
-.tab-content .tab-inner .top-header .heading svg{
+.tab-content .tab-inner .top-header .heading svg {
   width: 30px;
   fill: #1da923;
 }
 
-.tab-content .tab-inner .top-header .heading h1{
+.tab-content .tab-inner .top-header .heading h1 {
   margin: 0;
   color: #222;
   font-size: 24px;
 }
 
-.tab-content .tab-inner .top-header button.btn{
+.tab-content .tab-inner .top-header button.btn {
   border: none;
   padding: 8px 16px;
   color: #fff;
@@ -936,40 +936,52 @@ h1.heading svg {
   gap: 5px;
 }
 
-.tab-content .tab-inner .top-header button.btn-purple{
+.tab-content .tab-inner .top-header button.btn-purple {
   background-color: #671da9;
 }
 
-.tab-content .tab-inner .top-header button.btn-purple:hover{
+.tab-content .tab-inner .top-header button.btn-purple:hover {
   box-shadow: 0px 0px 10px 1px #671da9;
 }
 
-.tab-content .tab-inner .top-header button.btn-danger{
+.tab-content .tab-inner .top-header button.btn-danger {
   background-color: #f34642;
 }
 
-.tab-content .tab-inner .top-header button.btn-danger:hover{
+.tab-content .tab-inner .top-header button.btn-danger:hover {
   box-shadow: 0px 0px 10px 1px #f34642;
 }
 
-.tab-content .tab-inner .top-header button.btn svg{
+.tab-content .tab-inner .top-header button.btn svg {
   width: 20px;
   fill: #fff;
 }
 
-.users .grid-table-header{
+.tab-content .tab-inner .top-header p {
+  padding: 8px 16px;
+  margin: 0;
+  border-radius: 7px;
+  background-color: #671da9;
+  color: #fff;
+  max-width: 230px;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  overflow: hidden;
+}
+
+.users .grid-table-header {
   display: flex;
   justify-content: flex-end;
   gap: 5px;
   margin-bottom: 10px;
 }
 
-.users .grid-table-header .search-bar{
+.users .grid-table-header .search-bar {
   position: relative;
   margin-right: 10px;
 }
 
-.users .grid-table-header .search-bar .search{
+.users .grid-table-header .search-bar .search {
   padding: 8px 16px;
   border: 1px solid #ccc;
   background-color: #eee;
@@ -977,7 +989,7 @@ h1.heading svg {
   font-family: "Poppins";
 }
 
-.users .grid-table-header .search-bar svg{
+.users .grid-table-header .search-bar svg {
   width: 25px;
   position: absolute;
   right: 10px;
@@ -986,15 +998,15 @@ h1.heading svg {
   transition: 0.3s;
 }
 
-.users .grid-table-header .search:focus{
+.users .grid-table-header .search:focus {
   outline-color: #671da9;
 }
 
-.users .grid-table-header .search:focus ~ svg{
+.users .grid-table-header .search:focus ~ svg {
   fill: #671da9;
 }
 
-.users .btn{
+.users .btn {
   padding: 8px 16px;
   border-radius: 7px;
   border: none;
@@ -1004,65 +1016,67 @@ h1.heading svg {
   transition: 0.3s;
 }
 
-.users .btn.btn-success{
+.users .btn.btn-success {
   background-color: #1da923;
 }
 
-.users .btn.btn-success:hover{
+.users .btn.btn-success:hover {
   box-shadow: 0px 0px 10px 1px #1da923;
 }
 
-.users .btn.btn-danger{
+.users .btn.btn-danger {
   background-color: #f34642;
 }
 
-.users .btn.btn-danger:hover{
+.users .btn.btn-danger:hover {
   box-shadow: 0px 0px 10px 1px #f34642;
 }
 
-.add-user-page .heading{
+.add-user-page .heading {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.add-user-page .heading h1{
+.add-user-page .heading h1 {
   margin: 0;
 }
 
-.add-user-page .heading svg{
+.add-user-page .heading svg {
   width: 30px;
 }
 
-.add-user-page .add-user-form .field-row{
+.add-user-page .add-user-form .field-row {
   display: grid;
   grid-template-columns: 49% 49%;
   justify-content: space-between;
 }
 
-.add-user-page .add-user-form .field{
+.add-user-page .add-user-form .field {
   display: flex;
   flex-direction: column;
   gap: 5px;
   margin-bottom: 10px;
 }
 
-.add-user-page .add-user-form .field label{
+.add-user-page .add-user-form .field label {
   font-size: 14px;
 }
 
-.add-user-page .add-user-form .field input, .add-user-page .add-user-form .field select{
+.add-user-page .add-user-form .field input,
+.add-user-page .add-user-form .field select {
   padding: 8px 16px;
   border: 1px solid #ccc;
   border-radius: 7px;
   font-family: "Poppins";
 }
 
-.add-user-page .add-user-form .field input:focus, .add-user-page .add-user-form .field select:focus{
+.add-user-page .add-user-form .field input:focus,
+.add-user-page .add-user-form .field select:focus {
   outline-color: #671da9;
 }
 
-.add-user-page .add-user-form .field.buttons{
+.add-user-page .add-user-form .field.buttons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -1070,13 +1084,13 @@ h1.heading svg {
 }
 
 /* Category Tab CSS */
-.category-cards{
+.category-cards {
   display: grid;
   grid-template-columns: 32% 32% 32%;
   justify-content: space-between;
 }
 
-.category-cards .card{
+.category-cards .card {
   padding: 20px;
   background-color: #eee;
   margin-bottom: 20px;
@@ -1084,30 +1098,198 @@ h1.heading svg {
   transition: 0.3s;
 }
 
-.category-cards .card:hover{
+.category-cards .card:hover {
   background-color: #671da9;
   color: #fff;
 }
 
-.category-cards .card .image img{
+.category-cards .card .image img {
   width: 100%;
   border-radius: 10px;
 }
 
-.category-cards .card .text{
+.category-cards .card .text {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 20px;
 }
 
-.category-cards .card .text h4{
+.category-cards .card .text h4 {
   margin: 0;
 }
 
-.category-cards .card .text p{
+.category-cards .card .text p {
   margin: 0;
   font-size: 14px;
+}
+
+.tab-content .tab-inner .category-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: -20px;
+}
+
+.tab-content .tab-inner .category-name h1 {
+  font-size: 26px;
+  margin: 0;
+}
+
+.tab-content .tab-inner .category-name svg {
+  width: 30px;
+  fill: #671da9;
+}
+
+.quizzes .quiz-cards {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  list-style-type: none;
+  margin-bottom: 30px;
+}
+
+.quizzes .quiz-cards li {
+  margin: 30px 30px 0 0;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  /* transition: 0.3s all; */
+}
+
+/* Styling every 4th, 3rd, 2nd, and 1st child */
+.quizzes .quiz-cards li:nth-child(4n-3) {
+  border: 2px solid transparent;
+  background-color: #00000020;
+}
+
+.quizzes .quiz-cards li:hover:nth-child(4n-3) {
+  border: 2px solid #000;
+}
+
+.quizzes .quiz-cards li:nth-child(4n-2) {
+  border: 2px solid transparent;
+  background-color: #671da920;
+}
+
+.quizzes .quiz-cards li:hover:nth-child(4n-2) {
+  border: 2px solid #671da9;
+}
+
+.quizzes .quiz-cards li:nth-child(4n-1) {
+  border: 2px solid transparent;
+  background-color: #85cb3320;
+}
+
+.quizzes .quiz-cards li:hover:nth-child(4n-1) {
+  border: 2px solid #85cb33;
+}
+
+.quizzes .quiz-cards li:nth-child(4n) {
+  border: 2px solid transparent;
+  background-color: #ff4a1c20;
+}
+
+.quizzes .quiz-cards li:hover:nth-child(4n) {
+  border: 2px solid #ff4a1c;
+}
+
+/* Span and text styling */
+.quizzes .quiz-cards li span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  width: 100%;
+}
+
+.quizzes .quiz-cards li span p {
+  padding: 10px;
+  height: 100%;
+  margin: 0;
+}
+
+.quizzes .quiz-cards li span p.quizNo {
+  font-weight: 700;
+}
+
+.quizzes .quiz-cards li span p.chaptersNo {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Background and color styling for each group */
+.quizzes .quiz-cards li:nth-child(4n-3) span {
+  background: #000000;
+  color: #fff;
+}
+
+.quizzes .quiz-cards li:nth-child(4n-2) span {
+  background: #671da9;
+  color: #fff;
+}
+
+.quizzes .quiz-cards li:nth-child(4n-1) span {
+  background: #85cb33;
+  color: #fff;
+}
+
+.quizzes .quiz-cards li:nth-child(4n) span {
+  background: #ff4a1c;
+  color: #fff;
+}
+
+/* Quiz name styling */
+.quizzes .quiz-cards li p.quizName {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.chapters .quiz-name h2{
+  margin: 0;
+}
+
+.chapters .chapter-cards{
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  margin-bottom: 30px;
+}
+
+.chapters .chapter-cards li{
+  list-style-type: none;
+  margin: 20px 20px 0px 0px;
+  padding: 10px;
+  background: #dddddd;
+  border-radius: 10px;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.chapters .chapter-cards li:hover{
+  background-color: #671da9;
+  color: #fff;
+  box-shadow: 0px 0px 10px 1px #671da9;
+}
+
+.chapters .chapter-cards li p{
+  margin: 0;
+}
+
+.chapters .chapter-cards li p.chapterNo{
+  font-size: 12px;
+}
+
+.chapters .chapter-cards li p.chapterName{
+  font-weight: 600;
 }
 
 @media (max-width: 1280px) {

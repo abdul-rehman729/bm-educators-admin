@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Users from "./components/tabContents/users";
 import Categories from "./components/tabContents/categories";
 import Quizzes from "./components/tabContents/quizzes";
-import Questions from "./components/tabContents/questions";
+import Chapters from "./components/tabContents/chapters";
 import Requests from "./components/tabContents/requests";
 import Payments from "./components/tabContents/payments";
 import Permissions from "./components/tabContents/permissions";
@@ -13,7 +13,6 @@ import Login from "./components/login/login";
 import { useState, useEffect } from "react";
 
 function App() {
-
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
@@ -30,7 +29,7 @@ function App() {
   return (
     <div className={isLogin ? "bm-main" : ""}>
       <Router>
-        {isLogin ? <Tabs setIsLogin={setIsLogin} /> : null} {/* Show Tabs if logged in */}
+        {isLogin ? <Tabs setIsLogin={setIsLogin} /> : null}
 
         <Routes>
           {/* Show Login Route when not logged in */}
@@ -40,8 +39,13 @@ function App() {
             <>
               <Route path="/" element={<Users />} />
               <Route path="/categories" element={<Categories />} />
-              <Route path="/questions" element={<Questions />} />
-              <Route path="/quizzes" element={<Quizzes />} />
+              
+              {/* Dynamic Route for quizzes based on the selected category name */}
+              <Route path="/quizzes/" element={<Quizzes />} />
+              
+              {/* Dynamic Route for chapters based on the selected chapter */}
+              <Route path="/chapters/" element={<Chapters />} />
+              
               <Route path="/requests" element={<Requests />} />
               <Route path="/payments" element={<Payments />} />
               <Route path="/permissions" element={<Permissions />} />

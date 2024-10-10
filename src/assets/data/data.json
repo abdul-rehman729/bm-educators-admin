@@ -1,0 +1,182 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Basic Road Signs",
+      "image": "https://abdul-rehman729.github.io/hosted-files/category-dummy-1.jpg",
+      "desc": "Learn about the essential road signs you need to recognize for safe driving.",
+      "quizzes": [
+        {
+          "name": "Road Sign Quiz 1",
+          "desc": "Test your knowledge on common road signs and their meanings.",
+          "chapters": [
+            {
+              "name": "Chapter One: Mandatory Signs",
+              "desc": "Understand the signs that you must follow, such as stop signs and yield signs.",
+              "questions": [
+                { "question": "What does the stop sign indicate?", "answer": "You must come to a complete stop before proceeding." },
+                { "question": "What does a yield sign mean?", "answer": "You must give way to oncoming traffic." }
+              ]
+            },
+            {
+              "name": "Chapter Two: Warning Signs",
+              "desc": "Learn about warning signs such as sharp curves, pedestrian crossings, and more.",
+              "questions": [
+                { "question": "What does a sharp curve sign indicate?", "answer": "It warns of a sharp turn ahead." },
+                { "question": "What does a pedestrian crossing sign mean?", "answer": "It warns of an upcoming pedestrian crossing." }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Road Sign Quiz 2",
+          "desc": "Advanced questions on road signs for experienced drivers.",
+          "chapters": [
+            {
+              "name": "Chapter One: Informational Signs",
+              "desc": "Learn about signs that provide information such as distance and directions.",
+              "questions": [
+                { "question": "What does a blue sign indicate?", "answer": "A blue sign generally provides information or guidance." },
+                { "question": "What does a distance marker indicate?", "answer": "It shows how far you are from a specific destination." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Traffic Rules and Regulations",
+      "image": "https://abdul-rehman729.github.io/hosted-files/category-dummy-1.jpg",
+      "desc": "Learn about the fundamental rules of the road, including speed limits and right-of-way.",
+      "quizzes": [
+        {
+          "name": "Traffic Rules Quiz 1",
+          "desc": "Test your knowledge of traffic rules and regulations.",
+          "chapters": [
+            {
+              "name": "Chapter One: Speed Limits",
+              "desc": "Learn about speed limits and how they vary depending on the area.",
+              "questions": [
+                { "question": "What is the speed limit in residential areas?", "answer": "Typically, the speed limit is 30 km/h in residential areas." },
+                { "question": "What is the speed limit on highways?", "answer": "The speed limit on highways is usually 120 km/h." }
+              ]
+            },
+            {
+              "name": "Chapter Two: Right-of-Way",
+              "desc": "Understand the rules for right-of-way at intersections and pedestrian crossings.",
+              "questions": [
+                { "question": "Who has the right of way at an uncontrolled intersection?", "answer": "The vehicle on the right has the right of way." },
+                { "question": "What should you do if a pedestrian is crossing at a crosswalk?", "answer": "Yield to the pedestrian." }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Traffic Rules Quiz 2",
+          "desc": "Advanced rules of the road for experienced drivers.",
+          "chapters": [
+            {
+              "name": "Chapter One: Overtaking and Passing",
+              "desc": "Learn the rules for overtaking and passing safely on the road.",
+              "questions": [
+                { "question": "When is it safe to overtake another vehicle?", "answer": "Only when there is a clear view of the road ahead." },
+                { "question": "Is it allowed to overtake on a curve?", "answer": "No, overtaking on a curve is prohibited." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Safe Driving Practices",
+      "image": "https://abdul-rehman729.github.io/hosted-files/category-dummy-1.jpg",
+      "desc": "Explore the best practices for staying safe while driving, including defensive driving.",
+      "quizzes": [
+        {
+          "name": "Safe Driving Quiz 1",
+          "desc": "Test your understanding of safe driving habits.",
+          "chapters": [
+            {
+              "name": "Chapter One: Defensive Driving",
+              "desc": "Learn the techniques of defensive driving and how to anticipate potential hazards.",
+              "questions": [
+                { "question": "What is defensive driving?", "answer": "Defensive driving means being aware of potential hazards and taking action to avoid them." },
+                { "question": "How can you avoid accidents in heavy traffic?", "answer": "By maintaining a safe distance and being aware of other drivers." }
+              ]
+            },
+            {
+              "name": "Chapter Two: Speed and Control",
+              "desc": "Learn how to maintain control of your vehicle at different speeds.",
+              "questions": [
+                { "question": "What should you do if you start losing control of the vehicle?", "answer": "Ease off the accelerator and steer in the direction of the skid." },
+                { "question": "How does speeding affect your control?", "answer": "Speeding reduces the time you have to react and increases stopping distance." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Parking Techniques",
+      "image": "https://abdul-rehman729.github.io/hosted-files/category-dummy-1.jpg",
+      "desc": "Learn about parallel parking, reverse parking, and other parking techniques.",
+      "quizzes": [
+        {
+          "name": "Parking Quiz 1",
+          "desc": "Test your knowledge of different parking techniques.",
+          "chapters": [
+            {
+              "name": "Chapter One: Parallel Parking",
+              "desc": "Learn how to master parallel parking.",
+              "questions": [
+                { "question": "What is the first step in parallel parking?", "answer": "Signal and stop next to the car in front of the parking space." },
+                { "question": "How do you know if you are parked correctly?", "answer": "Your car should be within a foot of the curb." }
+              ]
+            },
+            {
+              "name": "Chapter Two: Reverse Parking",
+              "desc": "Understand how to safely park your car in reverse.",
+              "questions": [
+                { "question": "What is the best way to position your car for reverse parking?", "answer": "Align your car parallel to the parking spot and slowly reverse." },
+                { "question": "When should you check your mirrors while reversing?", "answer": "Check your mirrors constantly to ensure there are no obstacles." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Hazard Perception",
+      "image": "https://abdul-rehman729.github.io/hosted-files/category-dummy-1.jpg",
+      "desc": "Understand how to identify and react to hazards on the road.",
+      "quizzes": [
+        {
+          "name": "Hazard Perception Quiz 1",
+          "desc": "Test your ability to recognize and react to potential hazards.",
+          "chapters": [
+            {
+              "name": "Chapter One: Identifying Hazards",
+              "desc": "Learn how to identify potential hazards on the road.",
+              "questions": [
+                { "question": "What should you do if you see a child playing near the road?", "answer": "Slow down and be prepared to stop." },
+                { "question": "How should you react to a vehicle that suddenly swerves?", "answer": "Keep a safe distance and be ready to take evasive action." }
+              ]
+            },
+            {
+              "name": "Chapter Two: Road Conditions",
+              "desc": "Understand how different road conditions can create hazards.",
+              "questions": [
+                { "question": "How should you handle a pothole in the road?", "answer": "Slow down and drive over it carefully, avoiding swerving." },
+                { "question": "What should you do in foggy conditions?", "answer": "Use low beam headlights and reduce your speed." }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,51 +1,18 @@
 import React from "react";
 import { ReactComponent as CategoryIcon } from "../../assets/categories.svg";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import data from "../../assets/data/data.json"; // Import the data from the JSON file
 
 function Categories() {
-  const categories = [
-    {
-      id: 1,
-      name: "Category One",
-      image:
-        "https://abdul-rehman729.github.io/hosted-files/category-dummy-1.jpg",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      id: 2,
-      name: "Category Two",
-      image:
-        "https://abdul-rehman729.github.io/hosted-files/category-dummy-1.jpg",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      id: 3,
-      name: "Category Three",
-      image:
-        "https://abdul-rehman729.github.io/hosted-files/category-dummy-1.jpg",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      id: 4,
-      name: "Category Four",
-      image:
-        "https://abdul-rehman729.github.io/hosted-files/category-dummy-1.jpg",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      id: 5,
-      name: "Category Five",
-      image:
-        "https://abdul-rehman729.github.io/hosted-files/category-dummy-1.jpg",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      id: 6,
-      name: "Category Six",
-      image:
-        "https://abdul-rehman729.github.io/hosted-files/category-dummy-1.jpg",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-  ];
+  const navigate = useNavigate();
+
+  const categories = data.categories;
+
+  // Function to handle category click
+  const handleCategoryClick = (category) => {
+    navigate("/quizzes", { state: { selectedCategory: category } }); // Navigate to quizzes page with selected category data in state
+  };
+
   return (
     <div className="tab-content categories">
       <div className="tab-inner">
@@ -57,20 +24,21 @@ function Categories() {
         </div>
 
         <div className="category-cards">
-          {categories.map((category, index) => {
-            return (
-              <div className="card">
-                <div className="image">
-                  <img src={category.image} alt={category.name} />
-                </div>
-
-                <div className="text">
-                  <h4>{category.name}</h4>
-                  <p>{category.desc}</p>
-                </div>
+          {categories.map((category, index) => (
+            <div
+              className="card"
+              key={index}
+              onClick={() => handleCategoryClick(category)}
+            >
+              <div className="image">
+                <img src={category.image} alt={category.name} />
               </div>
-            );
-          })}
+              <div className="text">
+                <h4>{category.name}</h4>
+                <p>{category.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -18,8 +18,8 @@ function Tabs({ setIsLogin }) {
   const tabPathMapping = {
     "/": 0,
     "/categories": 1,
-    "/questions": 2,
-    "/quizzes": 3,
+    "/quizzes": 2,
+    "/chapters": 3,
     "/requests": 4,
     "/payments": 5,
   };
@@ -28,7 +28,7 @@ function Tabs({ setIsLogin }) {
   const activeTab = Object.keys(tabPathMapping).some((path) =>
     location.pathname.includes("/quizzes")
   )
-    ? 3
+    ? 2
     : tabPathMapping[location.pathname] || 0;
 
   const handleTabClick = (path) => {
@@ -65,17 +65,17 @@ function Tabs({ setIsLogin }) {
         </div>
         <div
           className={activeTab === 2 ? "tab active" : "tab"}
-          onClick={() => handleTabClick("/questions")}
-        >
-          <QuestionIcon />
-          Questions
-        </div>
-        <div
-          className={activeTab === 3 ? "tab active" : "tab"}
           onClick={() => handleTabClick("/quizzes")} // Route to Online Classes
         >
           <QuizIcon />
           Quizzes
+        </div>
+        <div
+          className={activeTab === 3 ? "tab active" : "tab"}
+          onClick={() => handleTabClick("/chapters")}
+        >
+          <QuestionIcon />
+          Chapters
         </div>
         <div
           className={activeTab === 4 ? "tab active" : "tab"}
