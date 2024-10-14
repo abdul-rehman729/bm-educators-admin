@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { Button, TextField, Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { ReactComponent as SearchIcon } from "../../assets/search.svg";
 import { ReactComponent as UserIcon } from "../../assets/users.svg";
 import { ReactComponent as AddUserIcon } from "../../assets/add-user.svg";
+import { useNavigate } from "react-router-dom"; 
 
 const Users = () => {
+  const navigate = useNavigate();
+  
   // Sample data
   const initialUsers = [
     {
@@ -13,54 +16,42 @@ const Users = () => {
       name: "Florence Shaw",
       email: "florence@untitledui.com",
       city: "New York",
-      dob: "03/01/2024",
       gender: "Female",
-      dateCreated: "2022-07-04",
     },
     {
       id: 2,
       name: "Amélie Laurent",
       email: "amelie@untitledui.com",
       city: "Paris",
-      dob: "03/01/2024",
       gender: "Female",
-      dateCreated: "2022-07-04",
     },
     {
       id: 3,
       name: "Ammar Foley",
       email: "ammar@untitledui.com",
       city: "London",
-      dob: "03/01/2024",
       gender: "Male",
-      dateCreated: "2022-07-04",
     },
     {
       id: 4,
       name: "Caitlyn King",
       email: "caitlyn@untitledui.com",
       city: "Los Angeles",
-      dob: "03/01/2024",
       gender: "Female",
-      dateCreated: "2022-07-04",
     },
     {
       id: 5,
       name: "Sienna Hewitt",
       email: "sienna@untitledui.com",
       city: "Sydney",
-      dob: "03/01/2024",
       gender: "Female",
-      dateCreated: "2022-07-04",
     },
     {
       id: 6,
       name: "Olly Shroeder",
       email: "olly@untitledui.com",
       city: "Berlin",
-      dob: "03/01/2024",
       gender: "Male",
-      dateCreated: "2022-07-04",
     },
   ];
 
@@ -74,7 +65,6 @@ const Users = () => {
     lastName: "",
     email: "",
     city: "",
-    dob: "",
     gender: "male",
   });
 
@@ -93,24 +83,67 @@ const Users = () => {
       name: `${formData.firstName} ${formData.lastName}`,
       email: formData.email,
       city: formData.city,
-      dob: formData.dob,
       gender: formData.gender,
-      dateCreated: new Date().toISOString().split("T")[0], // current date
     };
 
     setUsers([...users, newUser]); // Add new user to the list
     setIsAddUser(false); // Return to the main users table
-    setFormData({ firstName: "", lastName: "", email: "", city: "", dob: "", gender: "male" }); // Reset form
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      city: "",
+      gender: "male",
+    }); // Reset form
+  };
+
+  // Action Handlers
+  const handleView = (id) => {
+    const user = users.find((u) => u.id === id);
+    navigate(`/users/${id}`, { state: { user } }); // Navigate and pass user data
+  };
+
+  const handleDelete = (id) => {
+    setUsers(users.filter((user) => user.id !== id));
+  };
+
+  const handlePermission = (id) => {
+    console.log(`Set permissions for user with ID: ${id}`);
+    // Add your permission logic here
   };
 
   // Columns configuration
   const columns = [
-    { field: "name", headerName: "Name", width: 200 },
-    { field: "email", headerName: "Email", width: 250 },
-    { field: "city", headerName: "City", width: 150 },
-    { field: "dob", headerName: "DOB", width: 100 },
+    { field: "name", headerName: "Name", width: 150 },
+    { field: "email", headerName: "Email", width: 200 },
+    { field: "city", headerName: "City", width: 100 },
     { field: "gender", headerName: "Gender", width: 120 },
-    { field: "dateCreated", headerName: "Date Created", width: 150 },
+    {
+      field: "actions",
+      headerName: "Actions",
+      width: 300,
+      renderCell: (params) => (
+        <div className="buttons-row h-100">
+          <button className="btn btn-success"
+            onClick={() => handlePermission(params.row.id)}
+          >
+            Permission
+          </button>
+
+          <button className="btn btn-danger"
+            onClick={() => handleDelete(params.row.id)}
+          >
+            Delete
+          </button>
+
+          <button className="btn btn-purp"
+            onClick={() => handleView(params.row.id)}
+          >
+            View
+          </button>
+        </div>
+      ),
+    },
   ];
 
   // Handle search filtering
@@ -159,16 +192,12 @@ const Users = () => {
                 />
                 <SearchIcon />
               </div>
-              <button className="btn btn-success">Edit</button>
-
-              <button className="btn btn-danger">Delete</button>
             </div>
 
             <Box style={{ height: 400, width: "100%" }}>
               <DataGrid
                 rows={filteredUsers}
                 columns={columns}
-                checkboxSelection
                 pageSize={5}
                 rowsPerPageOptions={[5]}
                 pagination
@@ -193,7 +222,7 @@ const Users = () => {
               </button>
             </div>
 
-            <div className="add-user-form">
+            <div className="add-form">
               <form action="#" autoComplete="off">
                 <div className="field-row">
                   <div className="field">
@@ -242,18 +271,6 @@ const Users = () => {
                     value={formData.city}
                     onChange={handleFormChange}
                     placeholder="Enter city"
-                  />
-                </div>
-
-                <div className="field">
-                  <label htmlFor="dob">Date of Birth</label>
-                  <input
-                    type="date"
-                    id="dob"
-                    name="dob"
-                    value={formData.dob}
-                    onChange={handleFormChange}
-                    placeholder="Enter date of birth"
                   />
                 </div>
 

@@ -25,10 +25,16 @@ function Tabs({ setIsLogin }) {
   };
 
   // Determine which tab is active based on the URL path
-  const activeTab = Object.keys(tabPathMapping).some((path) =>
-    location.pathname.includes("/quizzes")
+  const activeTab = Object.keys(tabPathMapping).some(
+    (path) =>
+      location.pathname.includes("/quizzes") ||
+      location.pathname.includes("/chapters") ||
+      location.pathname.includes("/questions")
   )
-    ? 2
+    ? location.pathname.includes("/chapters") ||
+      location.pathname.includes("/questions")
+      ? 3
+      : 2
     : tabPathMapping[location.pathname] || 0;
 
   const handleTabClick = (path) => {
@@ -37,7 +43,8 @@ function Tabs({ setIsLogin }) {
 
   const handleLogout = () => {
     setIsLogin(false);
-    localStorage.setItem("isLogin", false);
+    localStorage.removeItem("isLogin");
+    localStorage.removeItem("token");
     navigate("/");
   };
 
