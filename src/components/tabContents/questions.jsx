@@ -14,7 +14,8 @@ function Questions() {
     question: "",
     options: ["", "", "", ""], // Array to hold 4 answer options
     correctOption: "", // To hold the correct answer's index
-    image: null, // To store the uploaded image
+    imageURL: null, // To store the uploaded image
+    audioURL: null, // To store the uploaded audio
   });
 
   // Fetch questions by chapter ID
@@ -71,9 +72,16 @@ function Questions() {
     return Object.keys(errors).length === 0;
   };
 
-  // Handle form input changes
+  // Handle form input changes and clear errors for specific fields
   const handleFormChange = (e) => {
     const { name, value } = e.target;
+
+    // Clear the specific error when the user provides a valid input
+    setFormErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: value.trim() ? null : prevErrors[name], // If field is valid, clear error
+    }));
+
     if (name.startsWith("option")) {
       // Handle option changes
       const index = parseInt(name.split("-")[1], 10); // Get the option index from the name
@@ -88,7 +96,13 @@ function Questions() {
   // Handle file input for image
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
-    setFormData({ ...formData, image: file });
+    setFormData({ ...formData, imageURL: file });
+  };
+
+  // Handle file input for audio
+  const handleAudioUpload = (e) => {
+    const file = e.target.files[0];
+    setFormData({ ...formData, audioURL: file });
   };
 
   // Handle adding new question (POST request)
@@ -97,28 +111,46 @@ function Questions() {
 
     const token = localStorage.getItem("token");
 
-    const dataToSend = {
-      ChapterID: chapterId,
-      QuestionTitle: formData.question,
-      Options: formData.options.map((option, index) => ({
-        option: option,
-        IsCorrect: formData.correctOption == index,
-      })),
-    };
+    const formDataToSend = new FormData();
+    formDataToSend.append("ChapterID", chapterId);
+    formDataToSend.append("QuestionTitle", formData.question);
+
+    // Add image and audio files if they are uploaded, otherwise empty strings
+    if (formData.imageURL) {
+      formDataToSend.append("QuestionImage", formData.imageURL);
+    } else {
+      formDataToSend.append("QuestionImage", ""); // Send empty string if no image
+    }
+
+    if (formData.audioURL) {
+      formDataToSend.append("QuestionAudio", formData.audioURL);
+    } else {
+      formDataToSend.append("QuestionAudio", ""); // Send empty string if no audio
+    }
+
+    // Convert options array to a JSON string and append it
+    const optionsData = formData.options.map((option, index) => ({
+      option: option,
+      IsCorrect: formData.correctOption == index,
+    }));
+
+    formDataToSend.append("QuestionOption", JSON.stringify(optionsData));
 
     try {
-      const response = await fetch("http://108.181.195.7:3000/admin/question/add", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json", // Sending JSON instead of FormData
-        },
-        body: JSON.stringify(dataToSend), // Sending JSON body
-      });
+      const response = await fetch(
+        "http://108.181.195.7:3000/admin/question/add",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formDataToSend,
+        }
+      );
 
       if (response.ok) {
         fetchQuestions();
-        setIsAddQuestion(false); // Close the form
+        setIsAddQuestion(false); // Close the form after submission
       } else {
         throw new Error("Failed to add question");
       }
@@ -155,7 +187,8 @@ function Questions() {
                       question: "",
                       options: ["", "", "", ""],
                       correctOption: "",
-                      image: null,
+                      imageURL: null,
+                      audioURL: null,
                     }); // Reset form fields
                   }}
                 >
@@ -210,7 +243,9 @@ function Questions() {
             <div className="add-form">
               <form autoComplete="off">
                 <div className="field">
-                  <label htmlFor="question">Question<span className="required">*</span></label>
+                  <label htmlFor="question">
+                    Question<span className="required">*</span>
+                  </label>
                   <input
                     type="text"
                     id="question"
@@ -226,7 +261,9 @@ function Questions() {
                 </div>
 
                 <div className="field">
-                  <label>Answers<span className="required">*</span></label>
+                  <label>
+                    Answers<span className="required">*</span>
+                  </label>
                   <div className="field-row">
                     {formData.options.map((option, index) => (
                       <div className="field" key={index}>
@@ -249,7 +286,9 @@ function Questions() {
                 </div>
 
                 <div className="field">
-                  <label htmlFor="correctOption">Correct Answer<span className="required">*</span></label>
+                  <label htmlFor="correctOption">
+                    Correct Answer<span className="required">*</span>
+                  </label>
                   <select
                     name="correctOption"
                     id="correctOption"
@@ -277,6 +316,17 @@ function Questions() {
                     name="image"
                     accept="image/*"
                     onChange={handleImageUpload}
+                  />
+                </div>
+
+                <div className="field">
+                  <label htmlFor="audio">Upload Audio (Optional)</label>
+                  <input
+                    type="file"
+                    id="audio"
+                    name="audio"
+                    accept="audio/*"
+                    onChange={handleAudioUpload}
                   />
                 </div>
 

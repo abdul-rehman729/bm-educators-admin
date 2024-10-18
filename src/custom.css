@@ -252,6 +252,22 @@ body {
   padding: 20px;
 }
 
+.tab-content .tab-inner .loading-tab-content {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.tab-content .tab-inner .loading-tab-content p{
+  margin: 0;
+}
+
 .bm-tab-content {
   padding: 20px;
 }
@@ -990,6 +1006,11 @@ h1.heading svg {
   border-radius: 10px;
 }
 
+.tab-content .tab-inner .top-header.empty-data{
+  background-color: #f34642;
+}
+
+
 .tab-content .tab-inner .top-header .heading {
   display: flex;
   align-items: center;
@@ -1001,10 +1022,18 @@ h1.heading svg {
   fill: #1da923;
 }
 
+.tab-content .tab-inner .top-header.empty-data .heading svg {
+  fill: #fff;
+}
+
 .tab-content .tab-inner .top-header .heading h1 {
   margin: 0;
   color: #222;
   font-size: 24px;
+}
+
+.tab-content .tab-inner .top-header.empty-data h1{
+  color: #fff;
 }
 
 .tab-content .tab-inner .top-header button.btn {
@@ -1040,6 +1069,14 @@ h1.heading svg {
 .tab-content .tab-inner .top-header button.btn svg {
   width: 20px;
   fill: #fff;
+}
+
+.tab-content .tab-inner .top-header.empty-data button.btn{
+  background-color: #000;
+}
+
+.tab-content .tab-inner .top-header.empty-data button.btn:hover{
+  box-shadow: 0px 0px 10px 1px #000;
 }
 
 .tab-content .tab-inner .top-header p {
@@ -1116,6 +1153,7 @@ h1.heading svg {
   flex-direction: column;
   gap: 5px;
   margin-bottom: 10px;
+  justify-content: center;
 }
 
 .add-form .field label {
@@ -1124,6 +1162,15 @@ h1.heading svg {
 
 .add-form .field label span.required{
   color: #f34642;
+}
+
+.add-form .field label.selection {
+  position: relative;
+  top: inherit;
+  right: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .add-form .field input,
@@ -1138,6 +1185,40 @@ h1.heading svg {
 .add-form .field input:focus,
 .add-form .field select:focus {
   outline-color: #671da9;
+}
+
+.add-form .field .selected-categories {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-form .field .selected-categories .selected-category {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  background: #eee;
+  border-radius: 17px;
+  transition: 0.3s all;
+}
+
+.add-form .field .selected-categories .selected-category:hover {
+  background: #ccc;
+}
+
+.add-form .field .selected-categories .selected-category p {
+  font-size: 10px;
+  margin: 0;
+}
+
+.add-form .field .selected-categories .selected-category button {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .add-form .field.buttons {

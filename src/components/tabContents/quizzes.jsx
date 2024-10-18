@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"; // Import useParams for dynamic routing
 import { ReactComponent as QuizIcon } from "../../assets/quiz.svg";
-import { ReactComponent as AddUserIcon } from "../../assets/add-user.svg"; // Icon for adding quiz
 
 function Quizzes() {
   const { categoryId } = useParams(); // Retrieve category ID if a category is selected
@@ -10,7 +9,8 @@ function Quizzes() {
   const [categories, setCategories] = useState([]); // State for all categories
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isAddQuiz, setIsAddQuiz] = useState(false); // For toggling quiz form visibility
+  const [isAddQuiz, setIsAddQuiz] = useState(false);
+  const [isQuizzes, setIsQuizzes] = useState(true);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -40,6 +40,7 @@ function Quizzes() {
 
         // Group quizzes by category if all categories are fetched
         if (!categoryId) {
+          setIsQuizzes(true);
           const quizzesByCategory = quizzes.reduce((acc, quiz) => {
             const category = quiz.Category.name;
             if (!acc[category]) {
@@ -53,8 +54,9 @@ function Quizzes() {
           if (quizzes.length > 0) {
             const categoryName = quizzes[0].Category.name; // Get category name from the first quiz
             setQuizzesByCategory({ [categoryName]: quizzes }); // Set the quizzes under the category name
+            setIsQuizzes(true);
           } else {
-            // Handle case if no quizzes are found for the category
+            setIsQuizzes(false);
             setQuizzesByCategory({});
           }
         }
@@ -150,25 +152,25 @@ function Quizzes() {
       <div className="tab-inner">
         {!isAddQuiz ? (
           <>
-            <div className="top-header">
+            <div className={!isQuizzes ? "top-header empty-data": "top-header"}>
               <div className="heading">
                 <QuizIcon />
-                <h1>{loading ? "Loading Quizzes..." : "Quizzes"}</h1>
+                <h1>{loading ? "Loading Quizzes..." : !isQuizzes ? "Quizzes are Empty" : "Quizzes"}</h1>
               </div>
 
               <div className="buttons-row flex-end">
                 <button
-                  className="btn btn-purple"
+                  className="btn btn-purp"
                   onClick={() => {
                     setIsAddQuiz(true); // Open the form
                     setFormData({
                       title: "",
                       description: "",
                       categoryId: categoryId || "",
-                    }); // Reset form fields
+                    });
                   }}
                 >
-                  <AddUserIcon />
+                  <QuizIcon />
                   Add Quiz
                 </button>
               </div>
@@ -178,6 +180,7 @@ function Quizzes() {
             {Object.keys(quizzesByCategory).map((categoryName) => (
               <div key={categoryName}>
                 <h2>{categoryName}</h2> {/* Display category name */}
+                {/* <h2>Length:{quizzesByCategory[categoryName].length}</h2> */}
                 <div className="quiz-cards">
                   {quizzesByCategory[categoryName].map((quiz, quizIndex) => (
                     <li key={quizIndex} onClick={() => handleQuizClick(quiz)}>
@@ -200,7 +203,7 @@ function Quizzes() {
           <div className="add-quiz-page">
             <div className="top-header">
               <div className="heading">
-                <AddUserIcon />
+                <QuizIcon />
                 <h1>Add New Quiz</h1>
               </div>
 

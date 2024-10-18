@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { ReactComponent as CategoryIcon } from "../../assets/categories.svg";
 import { ReactComponent as AddUserIcon } from "../../assets/add-user.svg";
 import { ReactComponent as CheckIcon } from "../../assets/checkmark.svg";
+import Lottie from "react-lottie";
+import loadingLottie from "../../assets/lotties/loading.json";
 import { useNavigate } from "react-router-dom";
 
 function Categories() {
@@ -21,13 +23,16 @@ function Categories() {
   const fetchCategories = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("http://108.181.195.7:3000/admin/category/all", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        "http://108.181.195.7:3000/admin/category/all",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -83,7 +88,9 @@ function Categories() {
         setIsEditing(false); // Reset editing state
         setSelectedCategories([]); // Reset selected categories
       } else {
-        throw new Error(isEditing ? "Failed to update category" : "Failed to add category");
+        throw new Error(
+          isEditing ? "Failed to update category" : "Failed to add category"
+        );
       }
     } catch (err) {
       setError(err.message);
@@ -114,12 +121,15 @@ function Categories() {
     const token = localStorage.getItem("token");
     try {
       for (const category of selectedCategories) {
-        await fetch(`http://108.181.195.7:3000/admin/category/delete/${category._id}`, {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        await fetch(
+          `http://108.181.195.7:3000/admin/category/delete/${category._id}`,
+          {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
       }
       // Refresh categories after deletion
       fetchCategories();
@@ -140,129 +150,99 @@ function Categories() {
   return (
     <div className="tab-content categories">
       <div className="tab-inner">
-        {!isAddCat ? (
+        {loading ? (
+          <div className="loading-tab-content">
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: loadingLottie,
+                rendererSettings: {
+                  preserveAspectRatio: "xMidYMid slice",
+                },
+              }}
+              height={100}
+              width={100}
+            />
+            <p>Loading Categories...</p>
+          </div>
+        ) : (
           <>
-            <div className="top-header">
-              <div className="heading">
-                <CategoryIcon />
-                <h1>{loading ? "Loading Categories..." : "Categories"}</h1>
-              </div>
+            {!isAddCat ? (
+              <>
+                <div className="top-header">
+                  <div className="heading">
+                    <CategoryIcon />
+                    <h1>"Categories"</h1>
+                  </div>
 
-              <div className="buttons-row flex-end">
-                <button
-                  className="btn btn-purple"
-                  onClick={() => {
-                    setIsAddCat(true);
-                    setIsEditing(false); // Reset editing state if adding new
-                    setFormData({ title: "", description: "", price: "" });
-                  }}
-                >
-                  <AddUserIcon />
-                  Add Category
-                </button>
-                {selectedCategories.length === 1 && (
-                  <button className="btn btn-success" onClick={handleEditClick}>
-                    Edit
-                  </button>
-                )}
-                {selectedCategories.length > 0 && (
-                  <button className="btn btn-danger" onClick={handleDeleteClick}>
-                    Delete
-                  </button>
-                )}
-              </div>
-            </div>
-
-            <div className="category-cards">
-              {categories.map((category, index) => (
-                <div className="card" key={index}>
-                  <label className="selection">
-                    <input
-                      type="checkbox"
-                      checked={selectedCategories.includes(category)}
-                      onChange={() => handleCheckboxToggle(category)}
-                    />
-                    <span className="checkmark"><CheckIcon/></span>
-                  </label>
-                  <div className="text" onClick={() => handleCategoryClick(category)}>
-                    <h4>{category.name}</h4>
-                    <p>{category.description}</p>
-                    <p>Price: ${category.Price}</p>
+                  <div className="buttons-row flex-end">
+                    <button
+                      className="btn btn-purple"
+                      onClick={() => {
+                        setIsAddCat(true);
+                        setIsEditing(false); // Reset editing state if adding new
+                        setFormData({ title: "", description: "", price: "" });
+                      }}
+                    >
+                      <AddUserIcon />
+                      Add Category
+                    </button>
+                    {selectedCategories.length === 1 && (
+                      <button
+                        className="btn btn-success"
+                        onClick={handleEditClick}
+                      >
+                        Edit
+                      </button>
+                    )}
+                    {selectedCategories.length > 0 && (
+                      <button
+                        className="btn btn-danger"
+                        onClick={handleDeleteClick}
+                      >
+                        Delete
+                      </button>
+                    )}
                   </div>
                 </div>
-              ))}
-            </div>
-          </>
-        ) : (
-          <div className="add-category-page">
-            <div className="top-header">
-              <div className="heading">
-                <AddUserIcon />
-                <h1>{isEditing ? "Update Category" : "Add New Category"}</h1>
-              </div>
 
-              <button
-                className="btn btn-danger"
-                onClick={() => {
-                  setIsAddCat(false);
-                  setIsEditing(false); // Reset editing state if canceled
-                  setSelectedCategories([]); // Reset selection
-                }}
-              >
-                Cancel
-              </button>
-            </div>
-
-            <div className="add-form">
-              <form autoComplete="off">
-                <div className="field">
-                  <label htmlFor="title">Category Title</label>
-                  <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    value={formData.title}
-                    onChange={handleFormChange}
-                    placeholder="Enter category title"
-                    required
-                  />
+                <div className="category-cards">
+                  {categories.map((category, index) => (
+                    <div className="card" key={index}>
+                      <label className="selection">
+                        <input
+                          type="checkbox"
+                          checked={selectedCategories.includes(category)}
+                          onChange={() => handleCheckboxToggle(category)}
+                        />
+                        <span className="checkmark">
+                          <CheckIcon />
+                        </span>
+                      </label>
+                      <div
+                        className="text"
+                        onClick={() => handleCategoryClick(category)}
+                      >
+                        <h4>{category.name}</h4>
+                        <p>{category.description}</p>
+                        <p>Price: ${category.Price}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
+              </>
+            ) : (
+              <div className="add-category-page">
+                <div className="top-header">
+                  <div className="heading">
+                    <AddUserIcon />
+                    <h1>
+                      {isEditing ? "Update Category" : "Add New Category"}
+                    </h1>
+                  </div>
 
-                <div className="field">
-                  <label htmlFor="description">Category Description</label>
-                  <textarea
-                    id="description"
-                    name="description"
-                    value={formData.description}
-                    onChange={handleFormChange}
-                    placeholder="Enter category description"
-                    required
-                  />
-                </div>
-
-                <div className="field">
-                  <label htmlFor="price">Price</label>
-                  <input
-                    type="number"
-                    id="price"
-                    name="price"
-                    value={formData.price}
-                    onChange={handleFormChange}
-                    placeholder="Enter price"
-                    required
-                  />
-                </div>
-
-                <div className="field buttons">
                   <button
-                    type="button"
-                    className="btn btn-success"
-                    onClick={handleSubmitCategory}
-                  >
-                    {isEditing ? "Update Category" : "Add Category"}
-                  </button>
-                  <button
-                    type="button"
                     className="btn btn-danger"
                     onClick={() => {
                       setIsAddCat(false);
@@ -273,9 +253,72 @@ function Categories() {
                     Cancel
                   </button>
                 </div>
-              </form>
-            </div>
-          </div>
+
+                <div className="add-form">
+                  <form autoComplete="off">
+                    <div className="field">
+                      <label htmlFor="title">Category Title</label>
+                      <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        value={formData.title}
+                        onChange={handleFormChange}
+                        placeholder="Enter category title"
+                        required
+                      />
+                    </div>
+
+                    <div className="field">
+                      <label htmlFor="description">Category Description</label>
+                      <textarea
+                        id="description"
+                        name="description"
+                        value={formData.description}
+                        onChange={handleFormChange}
+                        placeholder="Enter category description"
+                        required
+                      />
+                    </div>
+
+                    <div className="field">
+                      <label htmlFor="price">Price</label>
+                      <input
+                        type="number"
+                        id="price"
+                        name="price"
+                        value={formData.price}
+                        onChange={handleFormChange}
+                        placeholder="Enter price"
+                        required
+                      />
+                    </div>
+
+                    <div className="field buttons">
+                      <button
+                        type="button"
+                        className="btn btn-success"
+                        onClick={handleSubmitCategory}
+                      >
+                        {isEditing ? "Update Category" : "Add Category"}
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-danger"
+                        onClick={() => {
+                          setIsAddCat(false);
+                          setIsEditing(false); // Reset editing state if canceled
+                          setSelectedCategories([]); // Reset selection
+                        }}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>
